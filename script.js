@@ -13,7 +13,7 @@ var Person = function(name, yearOfBirth, job) {
   this.job = job;
 };
 
-Person.prototype.calculateAge = calculateAge = function() {
+Person.prototype.calculateAge = function() {
   // attaching methods to the constructor functions prototype property
   console.log(2017 - this.yearOfBirth);
 };
