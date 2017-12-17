@@ -1,5 +1,5 @@
 // Function constructor
-
+/*
 var nero = {
   name: 'Nero',
   yearOfBirth: 1991,
@@ -34,3 +34,24 @@ Messi.calculateAge();
 console.log(Nero.lastName);
 console.log(Neymar.lastName);
 console.log(Messi.lastName);
+*/
+
+// Object.create
+
+var personProto = {
+  calculateAge: function() {
+    conosle.log(2017 - this.yearOfBirth);
+  }
+};
+
+var nero = Object.create(personProto);
+
+nero.name = 'Nero';
+nero.yearOfBirth = 1991;
+nero.job = 'student';
+
+var neymar = Object.create(personProto, {
+  name: { value: 'Neymar' },
+  yearOfBirth: { value: 1992 },
+  job: { value: 'footballer' }
+});
