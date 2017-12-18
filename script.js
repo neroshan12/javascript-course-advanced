@@ -66,35 +66,37 @@ var neymar = Object.create(personProto, {
 // objects: variables assosciated with objects do not actually contain the object but a reference to a place in memory where that object is stored
 
 // primitives
-var a = 23;
-var b = a;
-a = 46;
-console.log(a); // 46
-console.log(b); // 23
-
-//objects
-obj1 = {
-  name: 'Nero',
-  age: 26
-};
-
-var obj2 = obj1; // no new object was created here, only a reference to it
-obj1.age = 30;
-console.log(obj1.age); // 30
-console.log(obj2.age); // 30
-
-// functions
-var age = 27;
-var obj = {
-  name: 'messi',
-  city: 'Barcelona'
-};
-
-function change(a, b) {
-  (a = 30), (b.city = 'Manchester');
-}
-
-change(age, obj);
-
-console.log(age); // 27
-console.log(obj.city); // Manchester
+// var a = 23;
+// var b = a;
+// a = 46;
+// console.log(a); // 46
+// console.log(b); // 23
+//
+// //objects
+// obj1 = {
+//   name: 'Nero',
+//   age: 26
+// };
+//
+// var obj2 = obj1; // no new object was created here, only a reference to it
+// obj1.age = 30;
+// console.log(obj1.age); // 30
+// console.log(obj2.age); // 30
+//
+// // functions
+// var age = 27;
+// var obj = {
+//   name: 'messi',
+//   city: 'Barcelona'
+// };
+//
+// function change(a, b) {
+//   // when you pass a primitive into the function a copy is created and will not affect the variable 'a' on the outside because it is a primitive
+//   (a = 30), console.log(a);
+//   ((b.city = 'Manchester')); // not really passing the object above line but the reference to the object
+// }
+//
+// change(age, obj);
+//
+// console.log(age); // 27
+// console.log(obj.city); // Manchester
