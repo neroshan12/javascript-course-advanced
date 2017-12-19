@@ -102,35 +102,66 @@ var neymar = Object.create(personProto, {
 // console.log(obj.city); // Manchester
 
 // Passing functions as arguments
-var years = [1991, 1992, 1958, 2001];
+// var years = [1991, 1992, 1958, 2001];
+//
+// function arrayCalc(arr, fn) {
+//   var arrRes = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     arrRes.push(fn(arr[i]));
+//   }
+//   return arrRes;
+// }
+//
+// function calculateAge(element) {
+//   return 2017 - element;
+// }
+//
+// function isDrinkingAge(element) {
+//   return element >= 18;
+// }
+//
+// function maxHeartRate(element) {
+//   if (element >= 18 && element <= 81) {
+//     return Math.round(206.9 - 0.67 * element);
+//   } else {
+//     return -1;
+//   }
+// }
+// var ages = arrayCalc(years, calculateAge);
+//
+// var isDrinkingAges = arrayCalc(ages, isDrinkingAge);
+// var rates = arrayCalc(ages, maxHeartRate);
+//
+// console.log(ages);
+// console.log(rates);
 
-function arrayCalc(arr, fn) {
-  var arrRes = [];
-  for (var i = 0; i < arr.length; i++) {
-    arrRes.push(fn(arr[i]));
-  }
-  return arrRes;
-}
+// Functions returning Functions
 
-function calculateAge(element) {
-  return 2017 - element;
-}
-
-function isDrinkingAge(element) {
-  return element >= 18;
-}
-
-function maxHeartRate(element) {
-  if (element >= 18 && element <= 81) {
-    return Math.round(206.9 - 0.67 * element);
+function interviewQuestion(job) {
+  // functions are always first class functions in javascript
+  if (job === 'designer') {
+    return function(name) {
+      console.log(name + ', can you please explain what UX design is?');
+    };
+  } else if (job === 'teacher') {
+    return function(name) {
+      console.log('What subject do you teach?, ' + name + '?');
+    };
   } else {
-    return -1;
+    return function(name) {
+      console.log('Hello, ' + name + ', what do you do?');
+    };
   }
 }
-var ages = arrayCalc(years, calculateAge);
 
-var isDrinkingAges = arrayCalc(ages, isDrinkingAge);
-var rates = arrayCalc(ages, maxHeartRate);
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
 
-console.log(ages);
-console.log(rates);
+teacherQuestion('John');
+designerQuestion('John');
+designerQuestion('Neymar');
+designerQuestion('Messi');
+designerQuestion('Beckham');
+
+interviewQuestion('teacher')('Mark'); // another way to do it, read from left to right, left bit is called first and then function(name) called with 'Mark'
+
