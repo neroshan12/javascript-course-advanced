@@ -136,32 +136,31 @@ var neymar = Object.create(personProto, {
 // console.log(rates);
 
 // Functions returning Functions
-
-function interviewQuestion(job) {
-  // functions are always first class functions in javascript
-  if (job === 'designer') {
-    return function(name) {
-      console.log(name + ', can you please explain what UX design is?');
-    };
-  } else if (job === 'teacher') {
-    return function(name) {
-      console.log('What subject do you teach?, ' + name + '?');
-    };
-  } else {
-    return function(name) {
-      console.log('Hello, ' + name + ', what do you do?');
-    };
-  }
-}
-
-var teacherQuestion = interviewQuestion('teacher');
-var designerQuestion = interviewQuestion('designer');
-
-teacherQuestion('John');
-designerQuestion('John');
-designerQuestion('Neymar');
-designerQuestion('Messi');
-designerQuestion('Beckham');
-
-interviewQuestion('teacher')('Mark'); // another way to do it, read from left to right, left bit is called first and then function(name) called with 'Mark'
-
+//
+// function interviewQuestion(job) {
+//   // functions are always first class functions in javascript
+//   if (job === 'designer') {
+//     return function(name) {
+//       console.log(name + ', can you please explain what UX design is?');
+//     };
+//   } else if (job === 'teacher') {
+//     return function(name) {
+//       console.log('What subject do you teach ' + name + '?');
+//     };
+//   } else {
+//     return function(name) {
+//       console.log('Hello, ' + name + ', what do you do?');
+//     };
+//   }
+// }
+//
+// var teacherQuestion = interviewQuestion('teacher'); // function in the functuon interviewQuestion is being assigned to teacherQuestion
+// var designerQuestion = interviewQuestion('designer');
+//
+// teacherQuestion('John');
+// designerQuestion('Cristiano');
+// designerQuestion('Neymar');
+// designerQuestion('Messi');
+// designerQuestion('Beckham');
+//
+// interviewQuestion('teacher')('Mark'); // another way to do it, read from left to right, left bit is called first and then function(name) called with 'Mark'
