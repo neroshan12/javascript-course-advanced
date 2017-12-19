@@ -92,7 +92,7 @@ var neymar = Object.create(personProto, {
 //
 // function change(a, b) {
 //   // when you pass a primitive into the function a copy is created and will not affect the variable 'a' on the outside because it is a primitive
-//   (a = 30), console.log(a);
+//   (a = 30), console.log(a); // it will not affect the variable outside of the function
 //   ((b.city = 'Manchester')); // not really passing the object above line but the reference to the object
 // }
 //
@@ -100,3 +100,37 @@ var neymar = Object.create(personProto, {
 //
 // console.log(age); // 27
 // console.log(obj.city); // Manchester
+
+// Passing functions as arguments
+var years = [1991, 1992, 1958, 2001];
+
+function arrayCalc(arr, fn) {
+  var arrRes = [];
+  for (var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]));
+  }
+  return arrRes;
+}
+
+function calculateAge(element) {
+  return 2017 - element;
+}
+
+function isDrinkingAge(element) {
+  return element >= 18;
+}
+
+function maxHeartRate(element) {
+  if (element >= 18 && element <= 81) {
+    return Math.round(206.9 - 0.67 * element);
+  } else {
+    return -1;
+  }
+}
+var ages = arrayCalc(years, calculateAge);
+
+var isDrinkingAges = arrayCalc(ages, isDrinkingAge);
+var rates = arrayCalc(ages, maxHeartRate);
+
+console.log(ages);
+console.log(rates);
