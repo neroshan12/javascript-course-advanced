@@ -164,3 +164,28 @@ var neymar = Object.create(personProto, {
 // designerQuestion('Beckham');
 //
 // interviewQuestion('teacher')('Mark'); // another way to do it, read from left to right, left bit is called first and then function(name) called with 'Mark'
+
+//
+
+// IIFE
+
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// }
+// game();
+//
+// (function() {
+//   // wrapped in () to trick parser into thinking it is an expression not a declaration
+//   var score = Math.random() * 10; // whats inside () cannot be a statement. JS will treat as expression
+//   console.log(score >= 5); // created data privacy as you cannot access score variable from outside
+// })(); // have to evoke it to call it
+//
+// // function () { // javascript parser will think that this is a function declaration
+// //
+// // }
+//
+// (function(goodLuck) { // just want to create scope that is hidden from outside scope and safely put variables
+//   var score = Math.random() * 10; // create data privacy and do not interfere with other variables in global execution context
+//   console.log(score >= 5 - goodLuck); // not to create reusable code
+// })(5);
