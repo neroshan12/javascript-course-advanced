@@ -189,3 +189,38 @@ var neymar = Object.create(personProto, {
 //   var score = Math.random() * 10; // create data privacy and do not interfere with other variables in global execution context
 //   console.log(score >= 5 - goodLuck); // not to create reusable code
 // })(5);
+
+// Closures
+// function retirement(retirementAge) {
+//   var a = ' years left until retirement.'; // variable 'a' is declared
+//   return function(yearOfBirth) {
+//     // function is returned
+//     var age = 2017 - yearOfBirth;
+//     console.log(retirementAge - age + a); // retirement age parameter used from outside of function and a variable declared outside and yet works when it is run. Can use those variables even after retirement function that declares the variables stops its execution
+//   }; //  funciton finishes and execution context is popped off the stack
+// }
+//
+// var retirementUS = retirement(66); // call retirement function anfd passed value of 66
+//
+// // retirement(66)(1991);
+//
+// var retirementGermany = retirement(65);
+// var retirementIceland = retirement(67);
+//
+// retirementGermany(1991);
+// retirementUS(1991);
+// retirementIceland(1990);
+
+// function interviewQuestion(job) {
+//   return function(name) {
+//     if (job === 'designer') {
+//       console.log(name + ', can you please explain what UX design is?');
+//     } else if (job === 'teacher') {
+//       console.log('What subject do you teach, ' + name + '?');
+//     } else {
+//       console.log('Hello ' + name + ', what do you do?');
+//     }
+//   };
+// }
+//
+// interviewQuestion('teacher')('Nero');
