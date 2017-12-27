@@ -311,3 +311,54 @@ var neymar = Object.create(personProto, {
 // var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20)); // copy of isFullAge function passed in with a copy of the function
 // console.log(ages);
 // console.log(fullJapan);
+
+// Coding challenge
+
+function Question(question, answers, correct) {
+  this.question = question;
+  this.answers = answers;
+  this.correct = correct; // up to here is the function constructor
+}
+
+Question.prototype.displayQuestion = function() {
+  console.log(this.question); // will point to own question, answer etc when q1/2/3 etc are called
+
+  for (var i = 0; i < this.answers.length; i++) {
+    console.log(i + ': ' + this.answers[i]);
+  }
+};
+
+Question.prototype.checkAnswer = function(ans) {
+  if (ans === this.correct) {
+    console.log('correct answer!');
+  } else {
+    console.log('Wrong answer, try again!');
+  }
+};
+
+var q1 = new Question(
+  'Is javascript the coolest programming language in the world?',
+  ['Yes', 'No'],
+  0
+);
+var q2 = new Question(
+  'What is the name of the course tutor?',
+  ['John', 'Mike', 'Jonas'],
+  2
+);
+var q3 = new Question(
+  'What best descibes coding?',
+  ['Boring', 'Hard', 'Fun'],
+  2
+);
+
+var questions = [q1, q2, q3];
+var n = Math.floor(Math.random() * questions.length);
+
+questions[n].displayQuestion();
+
+var answer = parseInt(prompt('Please select the correct answer.'));
+// parseINT converts a string into an integer
+
+questions[n].checkAnswer(answer);
+
