@@ -313,7 +313,9 @@ var neymar = Object.create(personProto, {
 // console.log(fullJapan);
 
 // Coding challenge
-//
+// (function() {
+
+// })();
 // function Question(question, answers, correct) {
 //   this.question = question;
 //   this.answers = answers;
